@@ -12,13 +12,13 @@ public class Trivia {
     private static final String BASE_URL = "https://opentdb.com/api.php";
 
     public static void main(String[] args) {
-        // These are fixed for now. Later, the user will type them in.
+        // These are fixed for now
         int amount = 5;               // how many questions
         int category = 27;            // 27 = Animals
         String difficulty = "easy";   // easy, medium, or hard
         String type = "boolean";      // boolean = true/false questions
 
-        // Make the full web address
+        // Make the web address
         String url = buildUrl(amount, category, difficulty, type);
         System.out.println("Requesting: " + url);
 
@@ -32,7 +32,6 @@ public class Trivia {
     }
 
     // Puts the user's choices into a web address.
-    // Example: https://opentdb.com/api.php?amount=5&category=27&difficulty=easy&type=boolean
     public static String buildUrl(int amount, int category, String difficulty, String type) {
         return BASE_URL + "?amount=" + amount
                 + "&category=" + category
@@ -40,8 +39,7 @@ public class Trivia {
                 + "&type=" + type;
     }
 
-    // Sends the request and returns the response text.
-    // Returns null if something goes wrong.
+    // Sends the request and returns the response text
     public static String fetchResponseText(String url) {
         // Create the tool that sends web requests
         HttpClient client = HttpClient.newHttpClient();
